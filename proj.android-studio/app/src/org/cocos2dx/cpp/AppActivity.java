@@ -30,7 +30,7 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 
 public class AppActivity extends Cocos2dxActivity {
 
-    private static AppActivity sActivity, sContext;
+    public static AppActivity sActivity, sContext;
 
 
     @Override
