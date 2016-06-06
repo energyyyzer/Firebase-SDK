@@ -26,11 +26,14 @@ package org.cocos2dx.cpp;
 import android.app.Activity;
 import android.os.Bundle;
 
+//import com.google.firebase.analytics.FirebaseAnalytics;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 public class AppActivity extends Cocos2dxActivity {
 
     public static AppActivity sActivity, sContext;
+   // private FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -40,6 +43,9 @@ public class AppActivity extends Cocos2dxActivity {
 
         sContext        = this;
         sActivity    = this;
+
+       // mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
 
 
 
