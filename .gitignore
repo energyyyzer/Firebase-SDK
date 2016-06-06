@@ -1,0 +1,35 @@
+local.properties
+
+.DS_Store
+
+
+# Removing autogenerating folders from Android project
+proj.android/libs/
+
+proj.android/obj/
+
+proj.android/bin/
+
+bin/
+
+#windows phone ignore compiled libs
+proj.win8.1-universal/ARM/
+proj.win8.1-universal/Debug
+proj.win8.1-universal/App.WindowsPhone/ARM/
+proj.win8.1-universal/App.WindowsPhone/Debug/
+
+
+proj.android-studio/app/obj/
+proj.android-studio/app/bin/
+proj.android-studio/app/libs/
+
+proj.android-studio/facebook_lib/build/
+
+
+cocos2d/build/build/
+
+
+cocos2d/cocos/platform/android/libcocos2dx/build/
+
+
+

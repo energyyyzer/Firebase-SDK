@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "153200702043",
+    "firebase_url": "https://fir-sample-1.firebaseio.com",
+    "project_id": "fir-sample-1",
+    "storage_bucket": "fir-sample-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153200702043:android:6f213ca260dd18af",
+        "android_client_info": {
+          "package_name": "com.estoty.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153200702043-cvh47lpf8r4a40t4uibshh6mcbccaukt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.estoty.firebase",
+            "certificate_hash": "11E53447487BF47F976E17F2D91D25BF57AFEA02"
+          }
+        },
+        {
+          "client_id": "153200702043-1450gen13jdpf1epvmlbb42dh0ukoca0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3dTtg1wVvvgrPBF9pUAx_6bKPNE0bfZg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153200702043-fcdl1h7i8mkqee52s3dh1ncpapu2ihv0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.estoty.firebase"
+              }
+            },
+            {
+              "client_id": "153200702043-1450gen13jdpf1epvmlbb42dh0ukoca0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
