@@ -108,7 +108,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //LogMessage("Initialize the Analytics library");
 #if defined(__ANDROID__)
     app = ::firebase::App::Create(::firebase::AppOptions(),  cocos2d::JniHelper::getEnv(),
-                                  cocos2d::JniHelper::classloader);
+                                  cocos2d::JniHelper::GetActivity());
 #else
     app = ::firebase::App::Create(::firebase::AppOptions());
 #endif  // defined(__ANDROID__)
