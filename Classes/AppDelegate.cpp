@@ -8,7 +8,7 @@
 #include "firebase/analytics/user_property_names.h"
 #include "firebase/app.h"
 
-#if defined(__ANDROID__)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) 
 #include "platform/android/jni/JniHelper.h"
 #include <android/log.h>
 #include <string.h>
@@ -101,17 +101,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 
     namespace analytics = ::firebase::analytics;
-    ::firebase::App* app;
     
-    
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)  
     
     //LogMessage("Initialize the Analytics library");
-#if defined(__ANDROID__)
-    app = ::firebase::App::Create(::firebase::AppOptions(),  cocos2d::JniHelper::getEnv(),
-                                  cocos2d::JniHelper::GetActivity());
-#else
-    app = ::firebase::App::Create(::firebase::AppOptions());
-#endif  // defined(__ANDROID__)
+    ::firebase::App* app = ::firebase::App::Create(::firebase::AppOptions());
     analytics::Initialize(*app);
     
     analytics::SetAnalyticsCollectionEnabled(true);
@@ -131,7 +125,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // Log an event with a floating point parameter.
     analytics::LogEvent("progress", "percent", 0.4f);
     
-
+#endif
 
     
     
@@ -161,3 +155,29 @@ void AppDelegate::applicationWillEnterForeground() {
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) 
+JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_initFirebase(JNIEnv* env, jobject thiz)
+{
+    namespace analytics = ::firebase::analytics;
+    ::firebase::App* app = ::firebase::App::Create(::firebase::AppOptions(), env, thiz);
+    analytics::Initialize(*app);
+    
+    analytics::SetAnalyticsCollectionEnabled(true);
+    // App needs to be open at least 1s before logging a valid session.
+    analytics::SetMinimumSessionDuration(1000);
+    // App session times out after 5s.
+    analytics::SetSessionTimeoutDuration(5000);
+    
+    // Set the user's sign up method.
+    analytics::SetUserProperty(analytics::kUserPropertySignUpMethod, "Google");
+    // Set the user ID.
+    analytics::SetUserId("uber_user_510");
+    
+    // Log an event with no parameters.
+    analytics::LogEvent(analytics::kEventLogin);
+    
+    // Log an event with a floating point parameter.
+    analytics::LogEvent("progress", "percent", 0.4f);
+}
+#endif

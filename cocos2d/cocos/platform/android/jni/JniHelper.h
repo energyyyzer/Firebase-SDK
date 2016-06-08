@@ -46,8 +46,6 @@ public:
     static void setJavaVM(JavaVM *javaVM);
     static JavaVM* getJavaVM();
     static JNIEnv* getEnv();
-    
-    static jobject GetActivity();
 
     static bool setClassLoaderFrom(jobject activityInstance);
     static bool getStaticMethodInfo(JniMethodInfo &methodinfo,

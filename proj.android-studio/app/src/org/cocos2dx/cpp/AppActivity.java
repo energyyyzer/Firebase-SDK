@@ -23,16 +23,15 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
-import android.app.Activity;
 import android.os.Bundle;
-
-//import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+//import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class AppActivity extends Cocos2dxActivity {
 
-    public static AppActivity sActivity, sContext;
+    public static AppActivity sContext;
    // private FirebaseAnalytics mFirebaseAnalytics;
 
 
@@ -42,16 +41,15 @@ public class AppActivity extends Cocos2dxActivity {
         super.onCreate(savedInstanceState);
 
         sContext        = this;
-        sActivity    = this;
 
        // mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-
+        initFirebase();
 
 
     }
 
-
+    private native void initFirebase();
 
 
 
