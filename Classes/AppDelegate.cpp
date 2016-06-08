@@ -101,12 +101,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 
     namespace analytics = ::firebase::analytics;
-    ::firebase::App* app;
     
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)  
     
     //LogMessage("Initialize the Analytics library");
-    app = ::firebase::App::Create(::firebase::AppOptions());
+    ::firebase::App* app = ::firebase::App::Create(::firebase::AppOptions());
     analytics::Initialize(*app);
     
     analytics::SetAnalyticsCollectionEnabled(true);
@@ -160,7 +159,8 @@ void AppDelegate::applicationWillEnterForeground() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) 
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_initFirebase(JNIEnv* env, jobject thiz)
 {
-    app = ::firebase::App::Create(::firebase::AppOptions(),  cocos2d::JniHelper::getEnv(),
+    namespace analytics = ::firebase::analytics;
+    ::firebase::App* app = ::firebase::App::Create(::firebase::AppOptions(),  cocos2d::JniHelper::getEnv(),
                                   thiz);
     analytics::Initialize(*app);
     
