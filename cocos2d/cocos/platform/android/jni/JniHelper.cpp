@@ -83,22 +83,6 @@ namespace cocos2d {
         pthread_key_create(&g_key, _detachCurrentThread);
     }
 
-
-    jobject JniHelper::GetActivity() 
-{
-    JNIEnv* env = JniHelper::getEnv();
-//org.cocos2dx.cpp
-    jclass activityClass = env->FindClass("org/cocos2dx/cpp/AppActivity");
-
-    //Get the Activity field
-    jfieldID activityField = env->GetStaticFieldID(activityClass, "sActivity","Lorg/cocos2dx/cpp/AppActivity;");
-
-    //Get the Activity object
-    jobject activityObject = env->GetStaticObjectField(activityClass, activityField);
-
-    return activityObject;
-}
-
     JNIEnv* JniHelper::cacheEnv(JavaVM* jvm) {
         JNIEnv* _env = nullptr;
         // get jni environment
