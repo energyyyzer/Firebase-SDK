@@ -160,8 +160,7 @@ void AppDelegate::applicationWillEnterForeground() {
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_initFirebase(JNIEnv* env, jobject thiz)
 {
     namespace analytics = ::firebase::analytics;
-    ::firebase::App* app = ::firebase::App::Create(::firebase::AppOptions(),  cocos2d::JniHelper::getEnv(),
-                                  thiz);
+    ::firebase::App* app = ::firebase::App::Create(::firebase::AppOptions(), env, thiz);
     analytics::Initialize(*app);
     
     analytics::SetAnalyticsCollectionEnabled(true);
